@@ -80,7 +80,13 @@ export default function DashboardPage() {
     setSyncing(true);
     setSyncResult(null);
     try {
-      const res = await fetch('/api/sync/smart', { method: 'POST' });
+      const res = await fetch('/api/sync/smart', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ companyId: company?.id }),
+      });
       const data = await res.json();
       setSyncResult(data);
       mutateSyncStatus();
@@ -217,7 +223,7 @@ export default function DashboardPage() {
           </div>
 
           <h1 className="text-2xl font-bold tracking-tight text-text-primary">
-            Licitaciones para {company?.name || 'ProgramBi'}
+            Panel de Control: Licitaciones para {company?.name || 'ProgramBi'}
           </h1>
           <p className="text-[13px] text-text-secondary max-w-xl leading-relaxed">
             Escaneamos de forma continua Mercado Público para extraer las oportunidades de capacitación y desarrollo tecnológico idóneas para tu catálogo de servicios.

@@ -1,10 +1,12 @@
 {
-  "lastSyncDate": "",
-  "lastSyncTimestamp": "",
-  "totalProcessed": 37,
-  "totalMatched": 37,
-  "totalAiScored": 37,
-  "totalIgnored": 0,
+  "lastSyncDate": "23062026",
+  "lastSyncTimestamp": "2026-06-23T04:58:23.894Z",
+  "totalProcessed": 1611,
+  "totalMatched": 67,
+  "totalAiScored": 11,
+  "totalIgnored": 1544,
   "errors": [],
-  "isRunning": false
+  "isRunning": false,
+  "currentStep": "Completado",
+  "progressPercent": 100
 }

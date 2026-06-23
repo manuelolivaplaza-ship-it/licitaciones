@@ -114,15 +114,7 @@ export async function POST(req: NextRequest) {
               continue;
             }
 
-            let detailedAmount = raw.MontoEstimado || 0;
-            try {
-              const detailed = await client.getLicitacion(codigo);
-              if (detailed && detailed.MontoEstimado) {
-                detailedAmount = detailed.MontoEstimado;
-              }
-            } catch (err) {
-              console.warn(`Failed to fetch detailed amount for background sync match ${codigo}:`, err);
-            }
+            const detailedAmount = raw.MontoEstimado || 0;
 
             const match: CompanyMatch = {
               id: '',
@@ -231,28 +223,34 @@ export async function POST(req: NextRequest) {
   updateSyncState({ isRunning: true, errors: [] });
 
   try {
+    // Parse optional date and companyId from request body
+    let inputFecha: string;
+    let targetCompanyId: string = '';
+    try {
+      const body = await req.json().catch(() => ({}));
+      inputFecha = body.fecha || '';
+      targetCompanyId = body.companyId || '';
+    } catch {
+      inputFecha = '';
+      targetCompanyId = '';
+    }
+
     // Get all registered companies
-    const companies = getCompanies();
+    let companies = getCompanies();
+    if (targetCompanyId) {
+      companies = companies.filter(c => c.id === targetCompanyId);
+    }
     
     if (companies.length === 0) {
       updateSyncState({ isRunning: false });
       return NextResponse.json({
         success: true,
-        message: 'No hay empresas registradas. Registra al menos una empresa para activar el matching inteligente.',
+        message: 'No hay empresas registradas para esta sincronización.',
         licitacionesFetched: 0,
         matchesFound: 0,
         aiScored: 0,
         ignored: 0,
       });
-    }
-
-    // Parse optional date from request body
-    let inputFecha: string;
-    try {
-      const body = await req.json().catch(() => ({}));
-      inputFecha = body.fecha || '';
-    } catch {
-      inputFecha = '';
     }
 
     const formatAsDdmmyyyy = (d: Date) => {
@@ -388,15 +386,7 @@ export async function POST(req: NextRequest) {
               continue;
             }
 
-            let detailedAmount = raw.MontoEstimado || 0;
-            try {
-              const detailed = await client.getLicitacion(codigo);
-              if (detailed && detailed.MontoEstimado) {
-                detailedAmount = detailed.MontoEstimado;
-              }
-            } catch (err) {
-              console.warn(`Failed to fetch detailed amount for sync match ${codigo}:`, err);
-            }
+            const detailedAmount = raw.MontoEstimado || 0;
 
             const match: CompanyMatch = {
               id: '',
@@ -543,9 +533,11 @@ async function scoreLicitacionForCompany(
   recommendation: AIRecommendation;
   reasons: string[];
 }> {
-  // Heurística local estricta para ProgramBi antes de gastar recursos de red o LLM
+  // Heurística local estricta para ProgramBi y perfiles Demo antes de gastar recursos de red o LLM
   const isProgramBi = company.name?.toLowerCase().includes('programbi') || 
-                      company.email?.toLowerCase().includes('programbi');
+                      company.email?.toLowerCase().includes('programbi') ||
+                      company.id === 'demo-company-id' ||
+                      company.name?.toLowerCase().includes('demo');
 
   if (isProgramBi) {
     const nameLower = nombre.toLowerCase();

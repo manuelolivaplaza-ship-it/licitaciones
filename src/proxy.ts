@@ -4,8 +4,8 @@ import { updateSession } from '@/lib/supabase/middleware';
 export async function proxy(request: NextRequest) {
   const pathname = request.nextUrl.pathname;
 
-  // Redirigir el inicio (Landing), login y register al dashboard directamente
-  if (pathname === '/' || pathname === '/login' || pathname === '/register') {
+  // Redirigir el inicio (Landing) al dashboard directamente
+  if (pathname === '/') {
     const redirectUrl = request.nextUrl.clone();
     redirectUrl.pathname = '/dashboard';
     return NextResponse.redirect(redirectUrl);

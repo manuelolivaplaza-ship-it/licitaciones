@@ -9,7 +9,6 @@ import { Mail, Lock, LogIn, Sparkles, AlertCircle, ArrowRight } from 'lucide-rea
 import { Badge } from '@/components/ui/badge';
 
 export default function LoginPage() {
-  redirect('/dashboard');
   const router = useRouter();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
