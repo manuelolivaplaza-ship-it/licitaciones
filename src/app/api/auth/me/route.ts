@@ -21,9 +21,8 @@ export async function GET(req: NextRequest) {
       }
     }
 
-    const isLocalMode = process.env.NEXT_PUBLIC_SUPABASE_URL === 'https://placeholder-project.supabase.co' || !process.env.NEXT_PUBLIC_SUPABASE_URL;
-
-    if (!company && isLocalMode) {
+    // Always auto-login ProgramBi if no session is active (single user mode)
+    if (!company) {
       const companies = getCompanies();
       const programbi = companies.find(c => c.id === 'programbi-id' || c.email === 'contacto@programbi.com');
       

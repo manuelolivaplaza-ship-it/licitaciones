@@ -2,13 +2,14 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import { useRouter } from 'next/navigation';
+import { useRouter, redirect } from 'next/navigation';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Mail, Lock, LogIn, Sparkles, AlertCircle, ArrowRight } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 
 export default function LoginPage() {
+  redirect('/dashboard');
   const router = useRouter();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');

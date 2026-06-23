@@ -3,6 +3,7 @@
 import { useState, useEffect, useCallback, useRef } from 'react';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
+import useSWR from 'swr';
 import { cn, formatDateRelative, formatCLP, formatDate } from '@/lib/utils';
 import {
   LayoutDashboard,
@@ -85,6 +86,25 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
   const [collapsed, setCollapsed] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [userMenuOpen, setUserMenuOpen] = useState(false);
+  const [company, setCompany] = useState<any>(null);
+
+  useEffect(() => {
+    try {
+      const stored = localStorage.getItem('licitahub_company');
+      if (stored) setCompany(JSON.parse(stored));
+    } catch {}
+  }, []);
+
+  const { data: companyData } = useSWR('/api/auth/me', (url) => fetch(url).then(res => res.json()), { revalidateOnFocus: false });
+
+  useEffect(() => {
+    if (companyData?.authenticated && companyData?.company) {
+      setCompany(companyData.company);
+      try {
+        localStorage.setItem('licitahub_company', JSON.stringify(companyData.company));
+      } catch {}
+    }
+  }, [companyData]);
 
   // Search
   const [searchOpen, setSearchOpen] = useState(false);
@@ -493,8 +513,8 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
                 : "left-0 right-0 bottom-full mb-2.5 w-full"
             )}>
               <div className="px-3 py-2.5 border-b border-border-primary/40 shrink-0">
-                <p className="text-xs font-semibold text-text-primary truncate">Manuel R.</p>
-                <p className="text-[10px] text-text-light truncate">manuel@empresa.cl</p>
+                <p className="text-xs font-semibold text-text-primary truncate">{company?.name || 'ProgramBi'}</p>
+                <p className="text-[10px] text-text-light truncate">{company?.email || 'contacto@programbi.com'}</p>
               </div>
               <div className="py-1">
                 <Link
@@ -503,19 +523,6 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
                   className="flex items-center gap-2.5 px-3 py-2 text-xs font-semibold text-text-secondary hover:bg-slate-50 dark:hover:bg-white/[0.03] hover:text-text-primary transition-colors"
                 >
                   <User className="h-3.5 w-3.5 text-text-light" /> Mi perfil
-                </Link>
-              </div>
-              <div className="border-t border-border-primary/40 py-1">
-                <Link
-                  href="/login"
-                  onClick={() => {
-                    setUserMenuOpen(false);
-                    localStorage.removeItem('licitahub_company');
-                    localStorage.removeItem('licitahub_session');
-                  }}
-                  className="flex items-center gap-2.5 px-3 py-2 text-xs font-semibold text-red-650 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-500/10 transition-colors"
-                >
-                  <LogOut className="h-3.5 w-3.5 text-red-500" /> Cerrar sesión
                 </Link>
               </div>
             </div>
@@ -536,7 +543,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
               )}
               title="Mi Cuenta"
             >
-              MR
+              {company?.name ? company.name.substring(0, 2).toUpperCase() : 'PB'}
             </button>
 
             <div className="w-5 h-[1px] bg-border-primary/30 my-0.5 shrink-0" />
@@ -625,11 +632,11 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
               )}
             >
               <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-slate-900 dark:bg-slate-100 text-xs font-semibold text-white dark:text-slate-900 shadow-sm shrink-0">
-                MR
+                {company?.name ? company.name.substring(0, 2).toUpperCase() : 'PB'}
               </div>
               <div className="flex-1 min-w-0">
-                <p className="text-xs font-semibold text-text-primary truncate">Manuel R.</p>
-                <p className="text-[10px] text-text-light truncate">manuel@empresa.cl</p>
+                <p className="text-xs font-semibold text-text-primary truncate">{company?.name || 'ProgramBi'}</p>
+                <p className="text-[10px] text-text-light truncate">{company?.email || 'contacto@programbi.com'}</p>
               </div>
               <ChevronDown className={cn('h-3.5 w-3.5 text-text-light transition-transform shrink-0', userMenuOpen && 'rotate-180')} />
             </button>

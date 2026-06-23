@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef, useCallback, memo } from 'react';
 import Link from 'next/link';
+import { redirect } from 'next/navigation';
 import {
   Zap,
   Search,
@@ -644,6 +645,7 @@ const HeroMockup = memo(function HeroMockup() {
 // ------------------------------------------------------------------
 
 export default function LandingPage() {
+  redirect('/dashboard');
   const [billingPeriod, setBillingPeriod] = useState<'monthly' | 'yearly'>('monthly');
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [expandedFaq, setExpandedFaq] = useState<number | null>(null);
