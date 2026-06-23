@@ -430,7 +430,7 @@ export default function LicitacionDetallePage() {
             Compartir
           </button>
           <a
-            href={`https://www.mercadopublico.cl/BuscarLicitacion.aspx?todos=1&codigo=${licitacion.codigo}`}
+            href={`https://www.mercadopublico.cl/fichaLicitacion.html?idLicitacion=${licitacion.codigo}`}
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center justify-center gap-2 px-4 py-3 rounded-xl text-xs font-semibold text-text-secondary bg-white/40 dark:bg-white/[0.02] border border-border-primary hover:bg-slate-50 dark:hover:bg-white/[0.04] transition-all cursor-pointer"
