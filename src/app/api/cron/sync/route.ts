@@ -5,8 +5,8 @@ import { evaluateMatch } from '@/lib/ai/matcher';
 import { Database } from '@/lib/supabase/schema';
 
 // Supabase client (using service role key for cron if available, or anon key)
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || '';
-const supabaseKey = process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || '';
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || 'https://placeholder-project.supabase.co';
+const supabaseKey = process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || 'placeholder-key';
 const supabase = createClient<Database>(supabaseUrl, supabaseKey);
 
 export async function GET(request: Request) {
@@ -53,23 +53,33 @@ export async function GET(request: Request) {
       raw_data: lic as any, // Full payload
     }));
 
-    // In a real scenario, we'd upsert these:
-    const { error: insertError } = await supabase
-      .from('licitaciones')
-      .upsert(licitacionesRows as any, { onConflict: 'id' });
+    const isPlaceholder = supabaseUrl.includes('placeholder');
+    let companies: any[] = [];
 
-    if (insertError) {
-      console.error('[Cron] Error al guardar licitaciones:', insertError);
-      // Continue anyway, maybe they exist already
-    }
+    if (!isPlaceholder) {
+      // In a real scenario, we'd upsert these:
+      const { error: insertError } = await supabase
+        .from('licitaciones')
+        .upsert(licitacionesRows as any, { onConflict: 'id' });
 
-    // 3. Obtener todas las empresas registradas
-    const { data: companies, error: companiesError } = await supabase
-      .from('companies')
-      .select('*');
+      if (insertError) {
+        console.error('[Cron] Error al guardar licitaciones:', insertError);
+        // Continue anyway, maybe they exist already
+      }
 
-    if (companiesError || !companies) {
-      throw new Error(`Error obteniendo empresas: ${companiesError?.message}`);
+      // 3. Obtener todas las empresas registradas
+      const { data, error: companiesError } = await supabase
+        .from('companies')
+        .select('*');
+
+      if (companiesError || !data) {
+        throw new Error(`Error obteniendo empresas: ${companiesError?.message}`);
+      }
+      companies = data;
+    } else {
+      // Modo local/placeholder sin DB
+      const { getCompanies } = require('@/lib/store');
+      companies = getCompanies() || [];
     }
 
     let matchesEvaluated = 0;
@@ -79,10 +89,8 @@ export async function GET(request: Request) {
     // Limitamos a las primeras 10 licitaciones para no colapsar la API en pruebas
     const licitacionesAProcesar = licitacionesRows.slice(0, 10);
 
-    const companiesArray = companies as any[];
-
     for (const licitacion of licitacionesAProcesar) {
-      for (const company of companiesArray) {
+      for (const company of companies) {
         matchesEvaluated++;
         
         // El matcher internamente filtra si vale la pena o no llamar al LLM
@@ -90,15 +98,35 @@ export async function GET(request: Request) {
 
         if (matchResult.recommendation_level !== 'descartada') {
           matchesSaved++;
-          // Guardar el match en base de datos
-          await supabase.from('company_licitacion_matches').upsert({
-            company_id: company.id,
-            licitacion_id: licitacion.id,
-            score: matchResult.score,
-            recommendation_level: matchResult.recommendation_level,
-            insights: matchResult.insights,
-            matched_keywords: matchResult.matched_keywords,
-          } as any, { onConflict: 'company_id,licitacion_id' });
+          
+          if (!isPlaceholder) {
+            // Guardar el match en base de datos
+            await supabase.from('company_licitacion_matches').upsert({
+              company_id: company.id,
+              licitacion_id: licitacion.id,
+              score: matchResult.score,
+              recommendation_level: matchResult.recommendation_level,
+              insights: matchResult.insights,
+              matched_keywords: matchResult.matched_keywords,
+            } as any, { onConflict: 'company_id,licitacion_id' });
+          } else {
+            // Guardar el match en memoria local
+            const { saveMatch } = require('@/lib/store');
+            saveMatch({
+              companyId: company.id,
+              licitacionCodigo: licitacion.id,
+              licitacionNombre: licitacion.nombre,
+              licitacionEstado: licitacion.estado,
+              licitacionRegion: licitacion.region,
+              licitacionMontoEstimado: licitacion.monto_estimado,
+              aiScore: matchResult.score,
+              aiRecommendation: matchResult.recommendation_level,
+              aiInsights: matchResult.insights,
+              aiReasons: matchResult.insights ? [matchResult.insights] : [],
+              aiMatchedCategories: matchResult.matched_keywords || [],
+              matchedAt: new Date().toISOString(),
+            });
+          }
         }
       }
     }
