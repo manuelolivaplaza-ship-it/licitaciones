@@ -166,9 +166,17 @@ export interface Licitacion {
   moneda: string;
   items: LicitacionItem[];
   adjudicacion?: AdjudicacionInfo;
+  // Buyer contact details
+  compradorContacto?: string;
+  compradorEmail?: string;
+  compradorFono?: string;
+  compradorCargo?: string;
+  compradorUnidad?: string;
+  compradorDireccion?: string;
+  compradorComuna?: string;
   // AI-enriched fields
   aiScore?: number;
-  aiSummary?: string;
+  aiInsights?: string;
   aiKeywords?: string[];
   // Metadata
   syncedAt: string;

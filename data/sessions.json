@@ -1,0 +1,20 @@
+[
+  {
+    "token": "dee3721c-e46d-4b3a-979e-94e5c57259f6",
+    "companyId": "programbi-id",
+    "email": "contacto@programbi.com",
+    "contactName": "Manuel",
+    "companyName": "ProgramBi",
+    "createdAt": "2026-06-23T02:47:47.538Z",
+    "expiresAt": "2026-06-30T02:47:47.538Z"
+  },
+  {
+    "token": "e3d283d9-fd67-48ac-9027-ca942754a07b",
+    "companyId": "demo-company-id",
+    "email": "demo@licitahub.cl",
+    "contactName": "Usuario Demo",
+    "companyName": "Demo Licitaciones Ltda.",
+    "createdAt": "2026-06-23T02:48:25.694Z",
+    "expiresAt": "2026-06-30T02:48:25.694Z"
+  }
+]

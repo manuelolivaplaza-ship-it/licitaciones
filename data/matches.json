@@ -1,0 +1,298 @@
+[
+  {
+    "id": "",
+    "companyId": "programbi-id",
+    "companyName": "ProgramBi",
+    "licitacionCodigo": "761391-70-LE26",
+    "licitacionNombre": "DE-19-DIPLOMADO EN BIG DATA Y CIENCIA DE DATOS",
+    "licitacionEstado": "desierta",
+    "licitacionFechaCierre": "2026-05-29T09:04:01.993",
+    "licitacionMontoEstimado": 0,
+    "licitacionOrganismo": "",
+    "licitacionRegion": "",
+    "compradorContacto": "",
+    "compradorEmail": "",
+    "compradorFono": "",
+    "ruleScore": 33,
+    "aiScore": 85,
+    "hybridScore": 64,
+    "aiInsights": "Esta licitación es altamente relevante para ProgramBi, ya que se alinea directamente con su rubro principal de Educación y Capacitación y sus especializaciones en Big Data y análisis de datos. Aunque la licitación está desierta, representa una oportunidad futura para la empresa, que posee la experiencia y certificaciones necesarias para este tipo de oferta.",
+    "aiRecommendation": "media",
+    "aiReasons": [
+      "La licitación es un 'Diplomado en Big Data y Ciencia de Datos', lo cual coincide perfectamente con las especializaciones de ProgramBi en Big Data, análisis de datos, Python y SQL.",
+      "ProgramBi ofrece 'Cursos de Programación' y 'Capacitaciones de Datos', lo que demuestra su capacidad para impartir diplomados en estas áreas.",
+      "La empresa cuenta con la certificación NCh 2728 y está registrada como Proveedor del Estado, lo que le otorga credibilidad y facilita su participación en licitaciones públicas.",
+      "La licitación está desierta, lo que indica una posible falta de oferentes calificados o una oportunidad para que ProgramBi presente una propuesta sólida en una futura re-licitación."
+    ],
+    "aiMatchedCategories": [
+      "Educación y Capacitación",
+      "diplomado"
+    ],
+    "notified": true,
+    "savedByUser": false,
+    "matchedAt": "2026-05-30T03:15:11.644Z"
+  },
+  {
+    "id": "af1ac2b0-c791-4734-b089-b4a0661856e0",
+    "companyId": "programbi-id",
+    "companyName": "ProgramBi",
+    "licitacionCodigo": "2067-30-LE26",
+    "licitacionNombre": "SERV. MONITOREO Y OPERACION AUTOMATIZACIÓN",
+    "licitacionEstado": "adjudicada",
+    "licitacionFechaCierre": "2026-05-22T16:00:00",
+    "licitacionMontoEstimado": 0,
+    "licitacionOrganismo": "SERVICIO SALUD ARAUCANIA SUR HOSPIT DR EDUARDO GONZALEZ GALENO CUNCO",
+    "licitacionRegion": "Región de la Araucanía ",
+    "compradorContacto": "",
+    "compradorEmail": "",
+    "compradorFono": "",
+    "ruleScore": 40,
+    "aiScore": 85,
+    "hybridScore": 67,
+    "aiInsights": "💻 Requerimiento técnico relacionado con Automatización & RPA. Puede requerir servicios de consultoría o desarrollo.",
+    "aiRecommendation": "alta",
+    "aiReasons": [
+      "Automatización & RPA"
+    ],
+    "aiMatchedCategories": [
+      "automatización"
+    ],
+    "notified": true,
+    "savedByUser": false,
+    "matchedAt": "2026-05-30T03:45:23.138Z"
+  },
+  {
+    "id": "1b7e7da0-ea2e-4fd9-b7a4-4789fc10de63",
+    "companyId": "programbi-id",
+    "companyName": "ProgramBi",
+    "licitacionCodigo": "885-48-LE26",
+    "licitacionNombre": "Renovación de 16 licencias de Creative Cloud for Teams",
+    "licitacionEstado": "publicada",
+    "licitacionFechaCierre": "2026-06-08T16:00:00",
+    "licitacionMontoEstimado": 0,
+    "licitacionOrganismo": "CONTRALORIA GENERAL DE LA REPUBLICA",
+    "licitacionRegion": "Región Metropolitana de Santiago",
+    "compradorContacto": "",
+    "compradorEmail": "",
+    "compradorFono": "",
+    "ruleScore": 90,
+    "aiScore": 85,
+    "hybridScore": 87,
+    "aiInsights": "💻 Requerimiento técnico relacionado con Metodologías Ágiles & Cloud DevOps. Puede requerir servicios de consultoría o desarrollo.",
+    "aiRecommendation": "alta",
+    "aiReasons": [
+      "Metodologías Ágiles & Cloud DevOps"
+    ],
+    "aiMatchedCategories": [
+      "Metodologías Ágiles & Cloud DevOps"
+    ],
+    "notified": true,
+    "savedByUser": false,
+    "matchedAt": "2026-05-30T04:16:42.057Z"
+  },
+  {
+    "id": "4feb6d75-f852-4598-ba87-fddc9c027252",
+    "companyId": "programbi-id",
+    "companyName": "ProgramBi",
+    "licitacionCodigo": "643-11-LP26",
+    "licitacionNombre": "SERVICIO TELEFONÍA IP EN LA NUBE CON TRONCALES SIP",
+    "licitacionEstado": "publicada",
+    "licitacionFechaCierre": "2026-06-17T10:00:00",
+    "licitacionMontoEstimado": 0,
+    "licitacionOrganismo": "Organismo Público",
+    "licitacionRegion": "Nacional",
+    "compradorContacto": "",
+    "compradorEmail": "",
+    "compradorFono": "",
+    "ruleScore": 90,
+    "aiScore": 85,
+    "hybridScore": 87,
+    "aiInsights": "💻 Requerimiento técnico relacionado con Metodologías Ágiles & Cloud DevOps. Puede requerir servicios de consultoría o desarrollo.",
+    "aiRecommendation": "alta",
+    "aiReasons": [
+      "Metodologías Ágiles & Cloud DevOps"
+    ],
+    "aiMatchedCategories": [
+      "Metodologías Ágiles & Cloud DevOps"
+    ],
+    "notified": true,
+    "savedByUser": false,
+    "matchedAt": "2026-05-30T04:16:43.612Z"
+  },
+  {
+    "id": "8408e10c-eaef-498a-bd11-93850b818d13",
+    "companyId": "programbi-id",
+    "companyName": "ProgramBi",
+    "licitacionCodigo": "1057500-38-LE26",
+    "licitacionNombre": "ADQUISICION DE 49 LICENCIAS TABLEAU",
+    "licitacionEstado": "cerrada",
+    "licitacionFechaCierre": "2026-05-27T15:01:00",
+    "licitacionMontoEstimado": 0,
+    "licitacionOrganismo": "SERVICIO DE SALUD METROPOLITANO SUR ORIENTE",
+    "licitacionRegion": "Región Metropolitana de Santiago",
+    "compradorContacto": "",
+    "compradorEmail": "",
+    "compradorFono": "",
+    "ruleScore": 90,
+    "aiScore": 85,
+    "hybridScore": 87,
+    "aiInsights": "💻 Requerimiento técnico relacionado con Power BI & Business Intelligence. Puede requerir servicios de consultoría o desarrollo.",
+    "aiRecommendation": "alta",
+    "aiReasons": [
+      "Power BI & Business Intelligence"
+    ],
+    "aiMatchedCategories": [
+      "Power BI & Business Intelligence"
+    ],
+    "notified": true,
+    "savedByUser": false,
+    "matchedAt": "2026-05-30T04:16:47.262Z"
+  },
+  {
+    "id": "89fccc33-8b19-45d2-b8f4-984d782ca7fe",
+    "companyId": "programbi-id",
+    "companyName": "ProgramBi",
+    "licitacionCodigo": "2378-41-LE26",
+    "licitacionNombre": "ADQ LICENCIAS ADOBE CREATIVE CLOUD Y ACROBAT PRO",
+    "licitacionEstado": "cerrada",
+    "licitacionFechaCierre": "2026-04-15T11:30:00",
+    "licitacionMontoEstimado": 17000000,
+    "licitacionOrganismo": "I MUNICIPALIDAD DE LA FLORIDA",
+    "licitacionRegion": "Región Metropolitana de Santiago",
+    "compradorContacto": "",
+    "compradorEmail": "",
+    "compradorFono": "",
+    "ruleScore": 90,
+    "aiScore": 85,
+    "hybridScore": 87,
+    "aiInsights": "💻 Requerimiento técnico relacionado con Metodologías Ágiles & Cloud DevOps. Puede requerir servicios de consultoría o desarrollo.",
+    "aiRecommendation": "alta",
+    "aiReasons": [
+      "Metodologías Ágiles & Cloud DevOps"
+    ],
+    "aiMatchedCategories": [
+      "Metodologías Ágiles & Cloud DevOps"
+    ],
+    "notified": true,
+    "savedByUser": false,
+    "matchedAt": "2026-05-30T04:16:51.269Z"
+  },
+  {
+    "id": "92f00901-ec30-4ed7-9453-a8e1f7437be2",
+    "companyId": "programbi-id",
+    "companyName": "ProgramBi",
+    "licitacionCodigo": "633-17-LE26",
+    "licitacionNombre": "SERVICIO DE CLOUD HOSTING PARA EL ALOJAMIENTO DE LOS SITIOS CONAF.CL E INTRA.CONAF.CL EN UN DATACENTER EN TERRITORIO NACIONAL",
+    "licitacionEstado": "cerrada",
+    "licitacionFechaCierre": "2026-05-15T15:00:00",
+    "licitacionMontoEstimado": 850,
+    "licitacionOrganismo": "CORP NACIONAL FORESTAL",
+    "licitacionRegion": "Región Metropolitana de Santiago",
+    "compradorContacto": "",
+    "compradorEmail": "",
+    "compradorFono": "",
+    "ruleScore": 90,
+    "aiScore": 85,
+    "hybridScore": 87,
+    "aiInsights": "💻 Requerimiento técnico relacionado con Metodologías Ágiles & Cloud DevOps. Puede requerir servicios de consultoría o desarrollo.",
+    "aiRecommendation": "alta",
+    "aiReasons": [
+      "Metodologías Ágiles & Cloud DevOps"
+    ],
+    "aiMatchedCategories": [
+      "Metodologías Ágiles & Cloud DevOps"
+    ],
+    "notified": true,
+    "savedByUser": false,
+    "matchedAt": "2026-05-30T04:16:53.135Z"
+  },
+  {
+    "id": "3000873a-8366-4d6e-9a42-60d6efaf03f3",
+    "companyId": "programbi-id",
+    "companyName": "ProgramBi",
+    "licitacionCodigo": "2424-45-L126",
+    "licitacionNombre": "SERVICIO DE PRODUCCION PARA DOS PRESENTACIONES ARTISTICAS DE COMPAÃIA PROFESIONAL DE DANZA CONTEMPORANEA CHILENA - 40 - 2120 - (K.G.)",
+    "licitacionEstado": "desierta",
+    "licitacionFechaCierre": "2026-06-01T12:11:26.867",
+    "licitacionMontoEstimado": 7000000,
+    "licitacionOrganismo": "",
+    "licitacionRegion": "",
+    "compradorContacto": "",
+    "compradorEmail": "",
+    "compradorFono": "",
+    "ruleScore": 50,
+    "aiScore": 85,
+    "hybridScore": 71,
+    "aiInsights": "💻 Requerimiento técnico relacionado con Inteligencia Artificial. Puede requerir servicios de consultoría o desarrollo.",
+    "aiRecommendation": "alta",
+    "aiReasons": [
+      "Inteligencia Artificial"
+    ],
+    "aiMatchedCategories": [
+      "ia"
+    ],
+    "notified": true,
+    "savedByUser": false,
+    "matchedAt": "2026-06-01T23:08:44.654Z"
+  },
+  {
+    "id": "3355c5d5-45a0-42c5-b4e4-f91a8c330742",
+    "companyId": "programbi-id",
+    "companyName": "ProgramBi",
+    "licitacionCodigo": "622-33-LE26",
+    "licitacionNombre": "Diplomado en IA Aplicada a Proceso de Negocios E9",
+    "licitacionEstado": "cerrada",
+    "licitacionFechaCierre": "2026-06-01T15:01:00",
+    "licitacionMontoEstimado": 30000000,
+    "licitacionOrganismo": "",
+    "licitacionRegion": "",
+    "compradorContacto": "",
+    "compradorEmail": "",
+    "compradorFono": "",
+    "ruleScore": 33,
+    "aiScore": 95,
+    "hybridScore": 70,
+    "aiInsights": "🎯 Oportunidad de capacitación excelente en Inteligencia Artificial. Calza directamente con tus especializaciones de ProgramBi.",
+    "aiRecommendation": "alta",
+    "aiReasons": [
+      "Inteligencia Artificial"
+    ],
+    "aiMatchedCategories": [
+      "Educación y Capacitación",
+      "diplomado",
+      "ia"
+    ],
+    "notified": true,
+    "savedByUser": false,
+    "matchedAt": "2026-06-01T23:09:40.349Z"
+  },
+  {
+    "id": "b0658905-f91b-47a5-a9df-d6ec2e9cf090",
+    "companyId": "programbi-id",
+    "companyName": "ProgramBi",
+    "licitacionCodigo": "5155-22-LE26",
+    "licitacionNombre": "295 - Renovación derecho de uso licenciamiento Adobe creative Cloud",
+    "licitacionEstado": "publicada",
+    "licitacionFechaCierre": "2026-06-11T15:00:00",
+    "licitacionMontoEstimado": 0,
+    "licitacionOrganismo": "",
+    "licitacionRegion": "",
+    "compradorContacto": "",
+    "compradorEmail": "",
+    "compradorFono": "",
+    "ruleScore": 40,
+    "aiScore": 85,
+    "hybridScore": 67,
+    "aiInsights": "💻 Requerimiento técnico relacionado con Metodologías Ágiles & Cloud DevOps. Puede requerir servicios de consultoría o desarrollo.",
+    "aiRecommendation": "alta",
+    "aiReasons": [
+      "Metodologías Ágiles & Cloud DevOps"
+    ],
+    "aiMatchedCategories": [
+      "cloud"
+    ],
+    "notified": true,
+    "savedByUser": false,
+    "matchedAt": "2026-06-01T23:10:39.312Z"
+  }
+]
